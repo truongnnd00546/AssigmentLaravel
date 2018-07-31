@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Category;
 class CategoryController extends Controller
 {
     /**
@@ -14,21 +14,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $cagegories = Category::all();
-        $categoryId = Input::get('categoryId');
-        if ($categoryId == null || $categoryId == 0) {
-            $obj = Product::all();
-            return view('admin.product.list')
-                ->with('list_obj', $obj)
-                ->with('categories', $cagegories)
-                ->with('categoryId', $categoryId);
-        } else {
-            $obj = Product::where('categoryId', Input::get('categoryId'));
-            return view('admin.product.list')
-                ->with('list_obj', $obj)
-                ->with('categories', $cagegories)
-                ->with('categoryId', $categoryId);
-        }
+        $list_pro = Category::all();
+        return view('admin.category.Category')->with('list_pro', $list_pro);
     }
 
 
