@@ -15,6 +15,9 @@
 //    return view('welcome');
 //});
 
-Route::resource('admin/product','ProductController');
-Route::resource('admin/category','CategoryController');
+//Route::resource('admin/product','ProductController');
+//Route::resource('admin/category','CategoryController');
+
+Route::resource('/index','ApartmentController');
+
 
